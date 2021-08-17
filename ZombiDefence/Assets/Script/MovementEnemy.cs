@@ -5,15 +5,17 @@ using UnityEngine;
 public class MovementEnemy : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float offsetSpeed = 1f;
     [SerializeField] private float offsenMovement = 1f;
     private Path path;
 
 
     private int indexWayPoint = 0;
+    private float currentSpeed;
 
     private void Start()
     {
-
+        currentSpeed = speed + Random.Range(-offsetSpeed, offsetSpeed);
         path = FindObjectOfType<Path>();
         Debug.Log(path.WayPoints[0].position);
     }
@@ -34,12 +36,14 @@ public class MovementEnemy : MonoBehaviour
                                             path.WayPoints[indexWayPoint].position.y + offset,
                                             path.WayPoints[indexWayPoint].position.z);
 
-        transform.position = Vector2.MoveTowards(transform.position,destination, speed * Time.deltaTime);
+        
+
+        transform.position = Vector2.MoveTowards(transform.position,destination, currentSpeed * Time.deltaTime);
     }
 
     void CheckDistanceToWaypoint()
     {
-        if (Vector2.Distance(transform.position, path.WayPoints[indexWayPoint].position) < 0.1f)
+        if (Vector2.Distance(transform.position, path.WayPoints[indexWayPoint].position) < 0.2f)
         {
             Debug.Log(path.WayPoints.Length + " " + indexWayPoint);
             if (path.WayPoints.Length - 1 > indexWayPoint)

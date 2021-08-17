@@ -19,9 +19,11 @@ public class SpawnerEnemy : MonoBehaviour
         for (int i = 0; i < howMachZombiInPool; i++)
         {
             poolZombi[i] = Instantiate(zombiPrefab, transform.position, transform.rotation);
-            poolZombi[i].active = false;
+            ///poolZombi[i].active = false;
             poolZombi[i].transform.SetParent(parentObjectInIerarchi);
         }
     }
+
+
 
 }
