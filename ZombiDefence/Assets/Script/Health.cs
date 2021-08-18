@@ -5,14 +5,22 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHP = 10;
-    [SerializeField] private int currentHP = 10;
+    [SerializeField] private int currentHP = 0;
 
     public bool isAlive => currentHP > 0;
 
      public int CurrentHP {  get => currentHP; }
-   
 
+    private void Start()
+    {
+        currentHP = maxHP;
+    }
     // private int HealthPoint { get => healthPoint; set => healthPoint = value; }
+
+    public void SetHP()
+    {
+        currentHP = maxHP;
+    }
 
     void ApplyHeall (int heall)
     {

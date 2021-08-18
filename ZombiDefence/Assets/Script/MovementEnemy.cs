@@ -46,7 +46,7 @@ public class MovementEnemy : MonoBehaviour
 
     private void NormalizedSpeed ()
     {
-        IsMovement = true;
+       // IsMovement = true;
         currentSpeed = speed + Random.Range(-offsetSpeed, offsetSpeed);
     }
 

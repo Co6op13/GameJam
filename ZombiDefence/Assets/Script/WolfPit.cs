@@ -6,6 +6,7 @@ public class WolfPit : MonoBehaviour
 {
     [SerializeField] private int amountDamage = 100;
     private bool activ = true;
+    [SerializeField] private bool isAttack = true;
     private MovementEnemy movementEnemy;
 
     private void Start()
@@ -15,13 +16,21 @@ public class WolfPit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.GetComponent<MovementEnemy>() != null )
+        {
+            collision.gameObject.GetComponent<MovementEnemy>().IsMovement = false;
+        }
+
         if ((collision.gameObject.GetComponent<Health>() != null)&& (activ))
         {
 
-
-            int targetHP = collision.gameObject.GetComponent<Health>().CurrentHP;
-            collision.gameObject.GetComponent<Health>().ApplyDamage(targetHP);
-            amountDamage -= targetHP;
+            if (isAttack)
+            {
+                int targetHP = collision.gameObject.GetComponent<Health>().CurrentHP;
+                collision.gameObject.GetComponent<Health>().ApplyDamage(targetHP);
+                amountDamage -= targetHP;
+            }
+            
             if (amountDamage <= 0)
             {
                 activ = false;

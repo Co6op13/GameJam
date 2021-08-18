@@ -10,49 +10,43 @@ public class Thorns : MonoBehaviour
     [SerializeField] private int damag = 1;
     [SerializeField] private float timeBetweenAttack = 1f;
     [SerializeField] private float timeScan = 0.2f;
-    [SerializeField] private float debafSpeed = 2f;
+    //[SerializeField] private float debafSpeed = 2f;
     //private bool activ = true;
     //private MovementEnemy movementEnemy;
     //Collider2D targetCollider;
     private float deltaTimeAttack;
-    private float deltaTimeScan;
+   // private float deltaTimeScan;
     //private bool isAttack;
 
     
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        deltaTimeAttack = timeBetweenAttack;
-        //isAttack = true;
-        //targetCollider = collision;
-        //Attack();
-        //Invoke("Attack", 1f);
-       // Invoke("Attack", 2f);
-
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    deltaTimeAttack = timeBetweenAttack;
+    //}
 
 
     private void FixedUpdate()
     {
 
-        if ( deltaTimeScan < 0)
-        {
+        //if ( deltaTimeScan < 0)
+        //{
 
-            deltaTimeScan = timeScan;
-            Collider2D[] enemys = Physics2D.OverlapCircleAll (transform.position, attackRange, attackMask);
-            ///Debug.Log(other.name);
-            if (enemys != null)
-            {
-               // deltaTimeAttack = timeBetweenAttack;
-                // Debug.Log(enemys.Length);
-                foreach (var enemy in enemys)
-                {
-                    if (enemy.GetComponent<MovementEnemy>() != null)
-                        enemy.GetComponent<MovementEnemy>().DebafSpeedMovement(debafSpeed,1f);
-                }
-            }
-        }
+        //    deltaTimeScan = timeScan;
+        //    Collider2D[] enemys = Physics2D.OverlapCircleAll (transform.position, attackRange, attackMask);
+        //    ///Debug.Log(other.name);
+        //    if (enemys != null)
+        //    {
+        //       // deltaTimeAttack = timeBetweenAttack;
+        //        // Debug.Log(enemys.Length);
+        //        foreach (var enemy in enemys)
+        //        {
+        //            if (enemy.GetComponent<MovementEnemy>() != null)
+        //                enemy.GetComponent<MovementEnemy>().DebafSpeedMovement(debafSpeed,1f);
+        //        }
+        //    }
+        //}
 
         if (deltaTimeAttack < 0)
         {
@@ -61,7 +55,7 @@ public class Thorns : MonoBehaviour
             if (enemys != null)
             {
                 //deltaTimeAttack = timeBetweenAttack;
-                Debug.Log("attack");
+               // Debug.Log("attack");
                 foreach (var enemy in enemys)
                 {
                     if (enemy.GetComponent<Health>() != null)
@@ -71,7 +65,7 @@ public class Thorns : MonoBehaviour
         }
            // Debug.Log(deltaTimeAttack);
             deltaTimeAttack -= Time.deltaTime;
-            deltaTimeScan -= Time.deltaTime;
+
     }
     //void Attack ()
     //{
