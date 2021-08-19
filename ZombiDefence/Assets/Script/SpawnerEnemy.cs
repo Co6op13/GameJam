@@ -6,7 +6,7 @@ public class SpawnerEnemy : MonoBehaviour
 {
     [SerializeField] private bool isSpawn = false;
     [SerializeField] private int howMachZombiInPool = 30;
-    [SerializeField] private int howMachBigZombiInPool = 30;
+   // [SerializeField] private int howMachBigZombiInPool = 30;
     [SerializeField] private GameObject zombiPrefab;
     [SerializeField] private GameObject bigZombiPrefab;
     [SerializeField] private Transform parentObjectInIerarchi;   
@@ -16,7 +16,7 @@ public class SpawnerEnemy : MonoBehaviour
     private void Start()
     {
         currentEnemyInPool = howMachZombiInPool-1;
-        parentObjectInIerarchi = GameObject.FindObjectOfType<EnemyList>().transform;
+        parentObjectInIerarchi = gameObject.transform;
         poolZombi = new GameObject[howMachZombiInPool];
         for (int i = 0; i < howMachZombiInPool; i++)
         {

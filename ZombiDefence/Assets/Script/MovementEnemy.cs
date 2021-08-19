@@ -10,7 +10,7 @@ public class MovementEnemy : MonoBehaviour
 
     private bool isMovement = true;
     private Path path;
-    private int indexWayPoint = 0;
+    private int indexWayPoint = 1;
     [SerializeField] private float currentSpeed;
 
     public bool IsMovement { get => isMovement; set => isMovement = value; }

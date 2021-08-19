@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1011508396489703527}
   - component: {fileID: 1011508396489703520}
   - component: {fileID: 1191168300397582200}
-  - component: {fileID: 1191168301388698592}
+  - component: {fileID: 1735392424736102462}
   m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011508396489703531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c228ddd08b5cb1c4da6f58881e49a4d1, type: 3}
   m_Name: 
@@ -119,14 +119,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011508396489703531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f8ab3155429ca34a8a408ec9398b53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
   currentHP: 100
---- !u!114 &1191168301388698592
+  prefabDie: {fileID: 0}
+--- !u!114 &1735392424736102462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,11 +136,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1011508396489703531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8ab3155429ca34a8a408ec9398b53e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7224b117a65c4b34a8e4cbe9d9fd7da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 100
+  PlaceWhereConstruction: {fileID: 1925048697144964251, guid: 1e1887ecbfbcac544a670db67040fc63, type: 3}
+  constructionPoints: []
 --- !u!1 &2062376028003991862
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 300
   m_Sprite: {fileID: 6727829702381804846, guid: 61989626ca31f844d9751d6bd4ee8a57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

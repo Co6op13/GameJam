@@ -33,9 +33,10 @@ public class WolfPit : MonoBehaviour
             
             if (amountDamage <= 0)
             {
-                activ = false;
-                if (gameObject.GetComponent<BoxCollider2D>() != null)
-                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(gameObject);
+                
+                //if (gameObject.GetComponent<BoxCollider2D>() != null)
+                //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
         

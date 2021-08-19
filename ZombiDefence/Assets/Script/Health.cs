@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
 
                 var dieAnimation = Instantiate(prefabDie, transform.position, transform.rotation);
                 var cuurentGFX = gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
-                Debug.Log(cuurentGFX.name);
+                //Debug.Log(cuurentGFX.name);
                 var dieGFX = dieAnimation.GetComponentInChildren<SpriteRenderer>();
                 dieGFX.sprite = cuurentGFX;
 

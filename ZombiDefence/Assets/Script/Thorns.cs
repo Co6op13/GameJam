@@ -9,7 +9,7 @@ public class Thorns : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private int damag = 1;
     [SerializeField] private float timeBetweenAttack = 1f;
-    [SerializeField] private float timeScan = 0.2f;
+    //[SerializeField] private float timeScan = 0.2f;
     //[SerializeField] private float debafSpeed = 2f;
     //private bool activ = true;
     //private MovementEnemy movementEnemy;

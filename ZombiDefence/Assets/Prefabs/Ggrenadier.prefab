@@ -167,4 +167,6 @@ MonoBehaviour:
   objectDefence: {fileID: 0}
   weapon: {fileID: 226048888746241722}
   firePoint: {fileID: 5814267987196702259}
+  PlaceWhereConstruction: {fileID: 1639216875262514235, guid: fbec95918bd7b6648a735149aae1d6d1, type: 3}
+  constructionPoints: []
   enemys: []

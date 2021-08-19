@@ -7,8 +7,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private LayerMask attackMask;
     [SerializeField] private float rangeExplosion = 3f;
     [SerializeField] private GameObject prefabExplosion;
-    [SerializeField] private int damage = 30;
-    [SerializeField] private float timeStun = 3f;
+   // [SerializeField] private int damage = 30;
+    //[SerializeField] private float timeStun = 3f;
     // Start is called before the first frame update
     
     private void StartExplosion()

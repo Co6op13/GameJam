@@ -6,8 +6,8 @@ public class DebufSlowMovemetn : MonoBehaviour
 {//  [SerializeField] private int amountDamage = 100;
     [SerializeField] private LayerMask attackMask;
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private int damag = 1;
-    [SerializeField] private float timeBetweenAttack = 1f;
+   // [SerializeField] private int damag = 1;
+   // [SerializeField] private float timeBetweenAttack = 1f;
     [SerializeField] private float timeScan = 0.2f;
     [SerializeField] private float debafSpeed = 2f;
 

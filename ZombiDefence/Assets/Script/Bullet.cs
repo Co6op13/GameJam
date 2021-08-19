@@ -7,7 +7,9 @@ public class Bullet : MonoBehaviour
     [Range(5f, 50f)] [SerializeField] private float speed;
     [SerializeField] private BoxCollider2D collider2D;
     //[SerializeField] private Vector3 weaponBar = new Vector3(0f, 0f, -10);
-    [Range(1f, 30f)] [SerializeField] private int damage = 1;
+    [Range(1f, 50f)] [SerializeField] private int damage = 1;
+
+    public int Damage { get => damage; set => damage = value; }
 
     private void Start()
     {
@@ -24,13 +26,13 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Zombi>() != null)
         {
-               Debug.Log("test");
+             //  Debug.Log("test");
             gameObject.SetActive(false);
             transform.position = new Vector3(0, 0, -100);
 
             if (collision.gameObject.GetComponent<Health>() != null)
             {
-                collision.gameObject.GetComponent<Health>().ApplyDamage(damage);
+                collision.gameObject.GetComponent<Health>().ApplyDamage(Damage);
                 //Debug.Log("damaged"+collision.gameObject.name);
             }
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2827487541928824578}
   - component: {fileID: 2827487541928824577}
+  - component: {fileID: 995878253}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -38,13 +39,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2827487541928824579}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8387b84d0dd689e4cbb76cf9f6b6aa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  howMachZombiInPool: 15
+  isSpawn: 1
+  howMachZombiInPool: 50
   howMachBigZombiInPool: 5
-  zombiPrefab: {fileID: 7821608677849342706, guid: fbca79e93b1512a42a62274a5862246e, type: 3}
+  zombiPrefab: {fileID: 7045749530408659522, guid: c88baea2b85481c41886647d4a7e13a3, type: 3}
   bigZombiPrefab: {fileID: 0}
-  parentObjectInIerarchi: {fileID: 0}
+  parentObjectInIerarchi: {fileID: 2827487541928824578}
+  currentEnemyInPool: 50
+--- !u!114 &995878253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827487541928824579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5709498d03f03468c35b8f7fe30c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsEnemys:
+  - {fileID: 1319183722736369967, guid: 3932d1b6aa1f7134190174ed141f639d, type: 3}
+  - {fileID: 7045749530408659522, guid: c88baea2b85481c41886647d4a7e13a3, type: 3}
+  - {fileID: 6223307511745917519, guid: 6685421a9584c9643a2d799ae2886a9e, type: 3}
+  - {fileID: 2049047203935531958, guid: 9fbb6e63be31a5c4dae987103001ab58, type: 3}
+  maxEnemyOnScreen: 50
+  totalEnemy: 500
+  enemySpawninOneTime: 1
+  spawnDelay: 0.5

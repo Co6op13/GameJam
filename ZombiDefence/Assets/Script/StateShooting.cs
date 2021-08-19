@@ -12,7 +12,10 @@ public class StateShooting : MonoBehaviour
     [SerializeField] private Transform objectDefence;
     [SerializeField] private Transform weapon;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject PlaceWhereConstruction;
 
+    [SerializeField] private Transform[] constructionPoints;
+    private bool isActiv = false;
     private GameObject[] poolBullet;
     [SerializeField]  private Collider2D[] enemys;
     private GameObject targerToAttack;
@@ -24,6 +27,8 @@ public class StateShooting : MonoBehaviour
 
     private void Start()
     {
+        //wayPoints = GetComponentsInChildren<Transform>();
+        constructionPoints = PlaceWhereConstruction.GetComponentsInChildren<Transform>();
         // var temp = GameObject.FindObjectsOfType<DefenceBase>();
         objectDefence = FindObjectOfType<DefenceBase>().gameObject.transform;
         poolBullet = new GameObject[countBulletInPool];
@@ -34,10 +39,49 @@ public class StateShooting : MonoBehaviour
         }
     }
 
+    public void ActivativationOrDeactivation(bool a)
+    {
+        isActiv = a;
+    }
+
+    void WhereConstruction()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePosition;
+       
+       
+    }
+
+    void CheckPlaceConstruction()
+    {
+       // Debug.Log("1");
+        foreach(var point in constructionPoints)
+        {
+            if (Vector2.Distance(transform.position, point.position) < 0.5f)
+            {
+                transform.position = point.position;
+                isActiv = true;
+               // Debug.Log("2");
+            }
+        }
+
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            CheckPlaceConstruction();
+        }
+    }
+
     private void FixedUpdate()
     {
-
-        if (deltaTimeAttack <= 0)
+       
+        if (!isActiv)
+        {
+            WhereConstruction();
+        }
+        else  if (deltaTimeAttack <= 0 )
         {
             
             deltaTimeAttack = timeBetweenAttack;
@@ -83,6 +127,7 @@ public class StateShooting : MonoBehaviour
             //Debug.Log(directionWeapon);
             poolBullet[countBullet - 1].transform.rotation = firePoint.rotation;//Quaternion.Euler(directionWeapon);
             poolBullet[countBullet - 1].SetActive(true);// plasmaBullet.ActivationBullet();
+            poolBullet[countBullet - 1].GetComponent<Bullet>().Damage = damag;
             countBullet--;
             //Invoke(nameof(LightOff), 0.1f);
         }
