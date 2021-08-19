@@ -24,7 +24,8 @@ public class StateShooting : MonoBehaviour
 
     private void Start()
     {
-        //objectDefence = GameObject.fin // FindObjectsOfType<DefenceBase>();
+        // var temp = GameObject.FindObjectsOfType<DefenceBase>();
+        objectDefence = FindObjectOfType<DefenceBase>().gameObject.transform;
         poolBullet = new GameObject[countBulletInPool];
         for (int i = 0; i < countBulletInPool; i++)
         {
@@ -53,19 +54,21 @@ public class StateShooting : MonoBehaviour
                         targerToAttack = enemy.gameObject;
                     }
                 }
-                if ((targerToAttack != null)&&(enemys.Length >0))
-                {
-                    
-                    gunDirection = (targerToAttack.transform.position - weapon.position).normalized;
-                    //angleWeapon = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
-                    angleWeapon = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
-                    weapon.eulerAngles = new Vector3(0, 0, angleWeapon);
+                if ((targerToAttack != null) && (enemys.Length > 0))
                     AttackTarget(targerToAttack);
-                }
+                
             }
         }
-        //Debug.Log(deltaTimeAttack);
-        deltaTimeAttack -= Time.deltaTime;
+        if ((targerToAttack != null) && (enemys.Length > 0))
+        {
+
+            gunDirection = (targerToAttack.transform.position - weapon.position).normalized;
+            //angleWeapon = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
+            angleWeapon = Mathf.Atan2(gunDirection.y, gunDirection.x) * Mathf.Rad2Deg;
+            weapon.eulerAngles = new Vector3(0, 0, angleWeapon);
+        }
+            //Debug.Log(deltaTimeAttack);
+            deltaTimeAttack -= Time.deltaTime;
     }
 
     void AttackTarget (GameObject target)

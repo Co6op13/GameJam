@@ -25,8 +25,6 @@ public class Explosion : MonoBehaviour
                 Debug.Log("test");
                 var force = enemy.transform.position - transform.position;
                 rigidbody.AddForce(( force ) * 3f, ForceMode2D.Impulse);
-                
-
             }
         }
     }
