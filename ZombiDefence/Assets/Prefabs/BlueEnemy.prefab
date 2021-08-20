@@ -134,6 +134,8 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 10
   prefabDie: {fileID: 1697612524733222703, guid: f3eca6d259a7f2c4199e7aef92c9edb9, type: 3}
+  ifBase: 0
+  gameOwer: {fileID: 0}
 --- !u!114 &1580514701254736293
 MonoBehaviour:
   m_ObjectHideFlags: 0

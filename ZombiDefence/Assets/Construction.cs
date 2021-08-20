@@ -7,10 +7,10 @@ public class Construction : MonoBehaviour
 {
     [SerializeField] private GameObject PlaceWhereConstruction;
     [SerializeField] private Transform[] constructionPoints;
-    [SerializeField] private GameObject listBlink;
+   // [SerializeField] private GameObject listBlink;
     //[SerializeField] private GameManager gameManager;
     //[SerializeField] private Transform[] animationBlinkList;
-    public event EventHandler onChangeHP;
+    //public event EventHandler onChangeHP;
     private Thorns thorns;
     private WolfPit WolfPit;
     private Health health;
@@ -46,7 +46,7 @@ public class Construction : MonoBehaviour
     private void Update()
     {
                 constructionPoints = PlaceWhereConstruction.GetComponentsInChildren<Transform>();
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             CheckPlaceConstruction();
         }
@@ -71,15 +71,15 @@ public class Construction : MonoBehaviour
             
                
 
-            if (Vector2.Distance(transform.position, point.position) < 0.5f)
+            if (Vector2.Distance(transform.position, point.position) < 1.2f)
             {
-                
+
                 if (thorns != null)
-                    thorns.enabled = true;
+                    thorns.ActivScript();
                 if (WolfPit != null)
-                    WolfPit.enabled = true;
-                if (health != null)
-                    health.enabled = true;
+                    WolfPit.ActivScript();
+                //if (health != null)
+                //    health.ActivScript();
                 if (DebufSlowMovemetn != null)
                     DebufSlowMovemetn.enabled = true;
                 

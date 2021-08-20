@@ -57,7 +57,7 @@ public class StateShooting : MonoBehaviour
        // Debug.Log("1");
         foreach(var point in constructionPoints)
         {
-            if (Vector2.Distance(transform.position, point.position) < 0.5f)
+            if (Vector2.Distance(transform.position, point.position) < 0.9f)
             {
                 transform.position = point.position;
                 isActiv = true;
@@ -68,7 +68,7 @@ public class StateShooting : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             CheckPlaceConstruction();
         }

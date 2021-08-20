@@ -13,28 +13,38 @@ public class DebufSlowMovemetn : MonoBehaviour
 
     private float deltaTimeScan;
 
+    [SerializeField] private bool isActiv = false;
 
-
-    private void FixedUpdate()
+    public void ActivScript()
     {
+        isActiv = true;
+    }
 
-        if (deltaTimeScan < 0)
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isActiv)
         {
 
-            deltaTimeScan = timeScan;
-            Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, attackRange, attackMask);
-            ///Debug.Log(other.name);
-            if (enemys != null)
+            if (deltaTimeScan < 0)
             {
-                // deltaTimeAttack = timeBetweenAttack;
-                // Debug.Log(enemys.Length);
-                foreach (var enemy in enemys)
+
+                deltaTimeScan = timeScan;
+                Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, attackRange, attackMask);
+                ///Debug.Log(other.name);
+                if (enemys != null)
                 {
-                    if (enemy.GetComponent<MovementEnemy>() != null)
-                        enemy.GetComponent<MovementEnemy>().DebafSpeedMovement(debafSpeed, 1f);
+                    // deltaTimeAttack = timeBetweenAttack;
+                    // Debug.Log(enemys.Length);
+                    foreach (var enemy in enemys)
+                    {
+                        if (enemy.GetComponent<MovementEnemy>() != null)
+                            enemy.GetComponent<MovementEnemy>().DebafSpeedMovement(debafSpeed, 1f);
+                    }
                 }
             }
+            deltaTimeScan -= Time.deltaTime;
         }
-        deltaTimeScan -= Time.deltaTime;
     }
 }

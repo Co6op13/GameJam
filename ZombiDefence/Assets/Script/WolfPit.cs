@@ -4,41 +4,46 @@ using UnityEngine;
 
 public class WolfPit : MonoBehaviour
 {
-    [SerializeField] private int amountDamage = 100;
+    [SerializeField] private int amountDamage = 20;
     private bool activ = true;
     [SerializeField] private bool isAttack = true;
     private MovementEnemy movementEnemy;
+    [SerializeField] private bool isActiv = false;
 
-    private void Start()
+    public void ActivScript()
     {
-        
+        isActiv = true;
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<MovementEnemy>() != null )
+        if (isActiv)
         {
-            collision.gameObject.GetComponent<MovementEnemy>().IsMovement = false;
-        }
-
-        if ((collision.gameObject.GetComponent<Health>() != null)&& (activ))
-        {
-
-            if (isAttack)
+            if (collision.gameObject.GetComponent<MovementEnemy>() != null)
             {
-                int targetHP = collision.gameObject.GetComponent<Health>().CurrentHP;
-                collision.gameObject.GetComponent<Health>().ApplyDamage(targetHP);
-                amountDamage -= targetHP;
+                collision.gameObject.GetComponent<MovementEnemy>().IsMovement = false;
             }
-            
-            if (amountDamage <= 0)
+
+            if ((collision.gameObject.GetComponent<Health>() != null) && (activ))
             {
-                Destroy(gameObject);
-                
-                //if (gameObject.GetComponent<BoxCollider2D>() != null)
-                //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+                if (isAttack)
+                {
+                    int targetHP = collision.gameObject.GetComponent<Health>().CurrentHP;
+                    collision.gameObject.GetComponent<Health>().ApplyDamage(targetHP);
+                    amountDamage--;
+                }
+
+                if (amountDamage <= 0)
+                {
+                    Destroy(gameObject);
+
+                    //if (gameObject.GetComponent<BoxCollider2D>() != null)
+                    //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
         }
-        
     }
 }

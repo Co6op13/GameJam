@@ -9,6 +9,7 @@ public class Thorns : MonoBehaviour
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private int damag = 1;
     [SerializeField] private float timeBetweenAttack = 1f;
+    [SerializeField] private bool isActiv = false;
     //[SerializeField] private float timeScan = 0.2f;
     //[SerializeField] private float debafSpeed = 2f;
     //private bool activ = true;
@@ -26,65 +27,36 @@ public class Thorns : MonoBehaviour
     //    deltaTimeAttack = timeBetweenAttack;
     //}
 
+    public void ActivScript()
+    {
+        isActiv = true;
+    }
+
 
     private void FixedUpdate()
     {
-
-        //if ( deltaTimeScan < 0)
-        //{
-
-        //    deltaTimeScan = timeScan;
-        //    Collider2D[] enemys = Physics2D.OverlapCircleAll (transform.position, attackRange, attackMask);
-        //    ///Debug.Log(other.name);
-        //    if (enemys != null)
-        //    {
-        //       // deltaTimeAttack = timeBetweenAttack;
-        //        // Debug.Log(enemys.Length);
-        //        foreach (var enemy in enemys)
-        //        {
-        //            if (enemy.GetComponent<MovementEnemy>() != null)
-        //                enemy.GetComponent<MovementEnemy>().DebafSpeedMovement(debafSpeed,1f);
-        //        }
-        //    }
-        //}
-
-        if (deltaTimeAttack < 0)
+        if (isActiv)
         {
-            deltaTimeAttack = timeBetweenAttack;
-            Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, attackRange, attackMask);
-            if (enemys != null)
+
+            if (deltaTimeAttack < 0)
             {
-                //deltaTimeAttack = timeBetweenAttack;
-               // Debug.Log("attack");
-                foreach (var enemy in enemys)
+                deltaTimeAttack = timeBetweenAttack;
+                Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, attackRange, attackMask);
+                if (enemys != null)
                 {
-                    if (enemy.GetComponent<Health>() != null)
-                        enemy.GetComponent<Health>().ApplyDamage(damag);
+                    //deltaTimeAttack = timeBetweenAttack;
+                    // Debug.Log("attack");
+                    foreach (var enemy in enemys)
+                    {
+                        if (enemy.GetComponent<Health>() != null)
+                            enemy.GetComponent<Health>().ApplyDamage(damag);
+                    }
                 }
             }
-        }
-           // Debug.Log(deltaTimeAttack);
+            // Debug.Log(deltaTimeAttack);
             deltaTimeAttack -= Time.deltaTime;
-
+        }
     }
-    //void Attack ()
-    //{
-
-    //    if ((targetCollider.gameObject.GetComponent<Health>() != null) && (activ))
-    //    {
-    //        if (targetCollider.GetComponent<MovementEnemy>() != null)
-    //            targetCollider.GetComponent<MovementEnemy>().DebafMovement();
-    //        int targetHP = targetCollider.gameObject.GetComponent<Health>().CurrentHP;
-    //        targetCollider.gameObject.GetComponent<Health>().ApplyDamage(currentDamage);
-    //        amountDamage -= currentDamage;
-    //        if (amountDamage <= 0)
-    //        {
-    //            activ = false;
-    //            if (gameObject.GetComponent<BoxCollider2D>() != null)
-    //                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-    //        }
-    //    }
-    //}
 
     private void OnDrawGizmos()
     {

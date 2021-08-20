@@ -162,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0
 --- !u!50 &6329583662405320764
 Rigidbody2D:
@@ -203,6 +203,7 @@ MonoBehaviour:
   attackRange: 1.5
   damag: 1
   timeBetweenAttack: 1
+  isActiv: 0
 --- !u!114 &567869802740740274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +222,7 @@ MonoBehaviour:
   attackRange: 2
   timeScan: 0.2
   debafSpeed: 2
+  isActiv: 0
 --- !u!114 &8093601355547406183
 MonoBehaviour:
   m_ObjectHideFlags: 0

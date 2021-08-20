@@ -92,10 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2201830056607781764}
   - component: {fileID: 2201830056607781767}
-  - component: {fileID: 2201830056607781766}
   - component: {fileID: 2201830056607781765}
   - component: {fileID: 2201830056607781762}
-  - component: {fileID: 1528677530}
   - component: {fileID: 2477717662753358932}
   m_Layer: 6
   m_Name: WolfPit
@@ -143,22 +141,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &2201830056607781766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201830056607781769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c10c401585f98647bca00273d567291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doesDamage: 0
-  damage: 0
 --- !u!50 &2201830056607781765
 Rigidbody2D:
   serializedVersion: 4
@@ -194,21 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountDamage: 100
   isAttack: 1
---- !u!114 &1528677530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201830056607781769}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8ab3155429ca34a8a408ec9398b53e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 100
-  prefabDie: {fileID: 0}
+  isActiv: 0
 --- !u!114 &2477717662753358932
 MonoBehaviour:
   m_ObjectHideFlags: 0

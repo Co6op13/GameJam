@@ -24,15 +24,40 @@ public class SpawnZombi : MonoBehaviour
             {
                 if (countEnemyOnScreen < maxEnemyOnScreen)
                 {
-                    GameObject newEnemy = Instantiate(prefabsEnemys[0]) as GameObject;
-                    newEnemy.transform.position = transform.position;
-                    newEnemy.active = true;
-                    newEnemy.GetComponent<Health>().SetHP();
+                    GameObject newEnemy;
+                    int typeEnemy = Random.Range(0, 100);
+                    if (i >= 0 && i <= 40)
+                    {
+                        newEnemy = Instantiate(prefabsEnemys[0]) as GameObject;
+                        SetParameterNewEnemy(newEnemy);
+                    }
+                    if (i >= 0 && i <= 40)
+                    {
+                        newEnemy = Instantiate(prefabsEnemys[1]) as GameObject;
+                        SetParameterNewEnemy(newEnemy);
+                    }
+                    if (i >= 0 && i <= 40)
+                    {
+                        newEnemy = Instantiate(prefabsEnemys[2]) as GameObject;
+                        SetParameterNewEnemy(newEnemy);
+                    }
+                    if (i >= 0 && i <= 40)
+                    {
+                        newEnemy = Instantiate(prefabsEnemys[3]) as GameObject;
+                        SetParameterNewEnemy(newEnemy);
+                    }
                     countEnemyOnScreen++;
                 }
             }
             yield return new WaitForSeconds(spawnDelay);
             StartCoroutine(Spawn());
         }
+    }
+
+    void SetParameterNewEnemy(GameObject enemy)
+    {
+        enemy.transform.position = transform.position;
+        enemy.active = true;
+        enemy.GetComponent<Health>().SetHP();
     }
 }

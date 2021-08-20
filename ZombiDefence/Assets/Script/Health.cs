@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHP = 10;
     [SerializeField] private int currentHP = 0;
     [SerializeField] private GameObject prefabDie;
+    [SerializeField] private bool ifBase = false;
+    [SerializeField] private GameObject gameOwer;
 
     public bool isAlive => currentHP > 0;
 
@@ -51,6 +54,11 @@ public class Health : MonoBehaviour
         {
             if (prefabDie != null)
             {
+                if (ifBase)
+                {
+                    gameOwer.GetComponent<TextMeshProUGUI>().enabled = true; ;
+                    //gameOwer.gameObject.e enable = true;
+                }
 
                 var dieAnimation = Instantiate(prefabDie, transform.position, transform.rotation);
                 var cuurentGFX = gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
@@ -60,8 +68,19 @@ public class Health : MonoBehaviour
 
             }
 
-            gameObject.active = false;
+            Destroy(gameObject);
+            //gameObject.active = false;
 
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (ifBase)
+        {
+            gameOwer.GetComponent<TextMeshProUGUI>().enabled = true; ;
+            //gameOwer.gameObject.e enable = true;
+        }
+
     }
 }
